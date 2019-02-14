@@ -1,0 +1,23 @@
+table, th, td {
+	border: 1px solid black;
+	text-align: center;
+	border-collapse: collapse;
+	background-color: lightgray;
+}
+h1 {
+	text-align: center;
+	font-style: bold;
+	color: green;
+}
+p {
+	text-align: center;
+}
+#valueStatement{
+	font-style: bold;
+}
+input[type=text] {
+	text-align: left;
+	margin-left: auto;
+	margin-right: auto;
+	width:100px;
+}

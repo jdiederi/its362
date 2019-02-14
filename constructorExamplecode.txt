@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Person Object</title>
+        <script type="text/javascript" language="javascript">
+            
+            // Person constructor
+            function Person() {
+                this.firstName = ""; // no keyword var
+                this.lastName = "";
+
+                this.getFullName = getFullName; // assigning the reference of a function
+            }
+
+            // getFullName() function
+            function getFullName() {
+                return this.firstName + " " + this.lastName;
+            }
+
+            // displayPerson() function
+            function displayPerson() {
+                var person = new Person();
+                person.firstName = "john";
+                person.lastName = "doe";
+
+                var fullName = person.getFullName();
+                var lblMessage = document.getElementById("message");
+                lblMessage.innerHTML = fullName;
+            }
+        </script>
+    </head>
+    <body onload="displayPerson()">
+        <span id="message"></span>
+    </body>
+</html>

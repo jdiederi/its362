@@ -1,0 +1,115 @@
+<html>
+	<head>
+		<title> Lab 04 - Cookies </title> 
+		<link rel="stylesheet" type="text/css" href="mycss.css">
+		<script src="javascriptLab4.js"></script>
+		<h1> Welcome to the ITS 362 Grade Calculation Table </h1>
+		<center><h2> Here you can calculate the grade you may receive in this course </h2></center>
+	</head>
+	
+	<body>
+		<div id="main">
+			<h3>Use this calculator and input the points you have earned for each category</h3>
+			<form id="form1">
+				Enter points received for Lab Assignments:
+				<input type="text" id="laPointsBox"> </br>
+				Enter points received for Quizzes:
+				<input type="text" id="qPointsBox"> </br>
+				Enter points received for Exams:
+				<input type="text" id="exPointsBox"> </br>
+				Enter points received for Projects:
+				<input type="text" id="prPointsBox"> </br>
+				Enter points received for Extra Credit:
+				<input type="text" id="ecPointsBox"> </br>
+				Enter points received for Partcipation:
+				<input type="text" id="paPointsBox"> </br>
+				Submit:
+				<input type="button" id="submit" onclick="createAssessments()" value= "Submit">
+				<h5>Press submit and let our algorithm do the rest</h5>
+			</form>
+		</div>
+		
+		<center>
+		<table id="table1">
+			<tr>
+				<th> Assessment</th>
+				<th> Number of Assessments</th>
+				<th> Max Points per Assessment</th>
+				<th> Total Points Possible </th>
+			</tr>
+			<tr>
+				<th> Lab assignment</th>
+					<td id="laA">10</td>
+					<td >25</td>
+					<td>250</td>
+			</tr>
+			<tr>
+				<th>Quiz</th>
+					<td id="qA">10</td>
+					<td>10</td>
+					<td>100</td>
+			</tr>
+			<tr>
+				<th>Exam</th>
+					<td id="eA"> 2</td>
+					<td> 100</td>
+					<td>200</td>
+			</tr>
+			<tr>
+				<th>Project</th>
+					<td id="prA"> 1</td>
+					<td>100</td>
+					<td>100</td>
+			</tr>
+			<tr>
+				<th>Extra Credit</th>
+					<td id="ecA"> 1</td>
+					<td>25</td>
+					<td>25</td>
+			</tr>
+			<tr>
+				<th>Participation</th>
+					<td id="paA"> 15</td>
+					<td> 5</td>
+					<td>75</td>
+			</tr>
+		</table>
+		</center>
+		<br> </br>
+		<div>
+		<center>
+		<table id="table2">
+			<tr>
+				<th> Earned % points</th>
+				<th> Grade</th>
+			</tr>
+			<tr>
+				<td>>= 90</td>
+				<td>A</td>
+			</tr>
+			<tr>
+				<td> >= 80 but < 90</td>
+				<td>B</td>
+			</tr>
+			<tr>
+				<td> >= 70 but < 80 </td>
+				<td>C</td>
+			</tr>
+			<tr>
+				<td> >= 60 but < 70 </td>
+				<td>D</td>
+			</tr>
+			<tr>
+				<td> < 60 </td>
+				<td>F</td>
+			</tr>
+		</table>
+		</center>
+		</div>
+		<p id= "valueStatement">
+		Total earned % points = 30% of lab assignments + 10% of quizzes + 30% of exams + 20% of project +
+        5% of extra-credit + 10% of participation 
+		</p>
+		<p id="display"></p>
+	</body>
+</html>

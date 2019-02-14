@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>cookies</title>
+        <script type="text/javascript" language="javascript">
+
+            // listAllCookies function
+            function listAllCookies() {
+                var cookies = document.cookie;
+                var i, cookieString = "";
+
+                if (cookies.length === 0) {
+                    cookieString = "No cookies...";
+                }
+                else {
+                    cookies = cookies.split(";"); // convert to an array
+                    var count = cookies.length;
+
+                    for (i = 0; i < count; i++) {
+                        cookieString += cookies[i] + "<br />";
+                    }
+                }
+
+                var lblMessage = document.getElementById("message");
+                lblMessage.innerHTML = cookieString;
+            }
+
+            // setCookie function
+            function setCookie() {
+                var cookieName = document.getElementById("cookieName").value;
+                var cookieValue = document.getElementById("cookieValue").value;
+
+                document.cookie = cookieName + "=" + escape(cookieValue) + ";";
+
+                listAllCookies();
+            }
+
+            // getCookie function
+            function getCookie() {
+                var cookieName = document.getElementById("cookieName").value;
+
+                var cookies = document.cookie.split(";");
+                var cookieString = "";
+                for (var i = 0; i < cookies.length; i++) {
+                    var crumbs = cookies[i].split("=");
+                    if (crumbs[0].trim() === cookieName) {
+                        cookieString = crumbs[0] + ": " + unescape(crumbs[1]);
+                    }
+
+                    if (cookieString.length === 0)
+                        cookieString = "Can't find the cookie...";
+
+                    var lblMessage = document.getElementById("message");
+                    lblMessage.innerHTML = cookieString;
+                }
+            }
+
+            // deleteCookie function
+            function deleteCookie() {
+                var cookieName = document.getElementById("cookieName").value;
+
+                var date = new Date();
+                date.setMonth(date.getMonth() - 1);
+                document.cookie = cookieName + ("=; expires=" + date.toUTCString()); 
+
+                listAllCookies();
+            }
+
+        </script>
+    </head>
+    <body onload="listAllCookies()">
+        Cookie Name: <input type="text" id="cookieName" /><br />
+        Cookie Value: <input type="text" id="cookieValue" /><br />
+        <br />
+        <input type="button" onclick="listAllCookies()" value="List All Cookies" />
+        <input type="button" onclick="setCookie()" value="Add/Set Cookie" />
+        <input type="button" onclick="getCookie()" value="Get Cookie" />
+        <input type="button" onclick="deleteCookie()" value="Delete Cookie" /><br />
+        <br />
+        <span id="message"></span>
+    </body>
+</html>
